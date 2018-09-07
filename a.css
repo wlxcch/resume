@@ -1,0 +1,9 @@
+@import url(./b.css);
+/* 第四种写法   css中再次引入css样式 */
+body{
+    background-color: grey;
+     }
+h1{
+    text-align:center;
+    color:red;
+  }
