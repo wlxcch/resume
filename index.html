@@ -2,43 +2,84 @@
 <html>
     <head>
         <title>王丽霞的个人简历</title>
+        <link rel="stylesheet" href="./resume.css">
     </head>
     <body>
-    <a href="index2.html" target=""> link</a>
-    <iframe src="" frameboder="0" name="aaa" ></iframe>
-    <form action="users" method="" target="_blank">
-        <label for="yhm">用户名：</label><input type="text" name="username" id="yhm">
-        <label >密码：<input type="password" name="password" ></label>
-        <input type="checkbox" id="aiwo"><label for="aiwo">爱我</label>
-        <input type="checkbox" id="aiwo1"><label for="aiwo">爱我1</label>
-        <label><input type="radio" name="loveme1" value="yes">yes</label>
-        <label><input type="radio" name="loveme1" value="no">no</label>
-        <select name="group" multiple>
-            <option value="">--</option>
-            <option value="1">第一组</option>
-            <option value="2">第二组</option>
-            <option value="3" disabled>第三组</option>
-            <option value="4" selected>第四组</option>
-        </select>
-        <input type="submit" value="提交">
-    </form>
+    <div class="topNavBar clearfix">
+        <a class="logo" href="#" alt="logo" style="float:left;">
+            <span class="rs">RS</span><span class="card">card</span>
+        </a>
+        <nav style="float:right;" >
+            <!--让导航条横起来给ul加classfix类，给li加float属性 .但是ul有默认样式，左边有空隙，
+            在ul style中添加margin:0;padding:0就可以去除样式     写样式用冒号：不是用等于号
 
-        <a href ="//qq.com">QQ</a>
-        <a href="#">link</a>
-    <div class=topNavBar">
-        <img src="#" alt="logo"/>
-        <nav>
-            <ul>
-                <li><a href="#"> ABOUT</a></li>
-                <li><a href="#"> SKILLS</a></li>
-                <li><a href="#"> PORTFOLIO</a></li>
-                <li><a href="#"> EXPERIENCE</a></li>
-                <li><a href="#"> PRICING</a></li>
-                <li><a href="#"> BLOG</a></li>
-                <li><a href="#"> CALENDAR</a></li>
-                <li><a href="#"> CONTACT</a></li>
-                <li><a href="#"> OTHER</a></li>
-            </ul>
+             1.内联样式实现  2.在外部css中写样式 
+
+            1.下面是用内联样式写的方法，太繁琐，  推荐外部样式的写法 -->
+
+            <!-- <ul style="list-style:none;margin:0;padding:0;border:1px solid red;" class="clearfix">
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> ABOUT</a>
+                </li>
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> SKILLS</a>
+                </li>
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> PORTFOLIO</a>
+                </li>
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> EXPERIENCE</a>
+                </li>
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> PRICING</a>
+                </li>
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> BLOG</a>
+                </li>
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> CALENDAR</a>
+                </li>
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> CONTACT</a>
+                </li>
+                <li style="float:left;border:1px solid green;">
+                    <a href="#"> OTHER</a>
+                </li>
+            </ul> -->
+
+            <!-- 2.在外部css中写样式  -->
+            
+                    <ul class="clearfix";>
+                        <li >
+                            <a href="#"> ABOUT</a>
+                        </li>
+                        <li >
+                            <a href="#"> SKILLS</a>
+                        </li>
+                        <li>
+                            <a href="#"> PORTFOLIO</a>
+                        </li>
+                        <li>
+                            <a href="#"> EXPERIENCE</a>
+                        </li>
+                        <li>
+                            <a href="#"> PRICING</a>
+                        </li>
+                        <li >
+                            <a href="#"> BLOG</a>
+                        </li>
+                        <li >
+                            <a href="#"> CALENDAR</a>
+                        </li>
+                        <li>
+                            <a href="#"> CONTACT</a>
+                        </li>
+                        <li>
+                            <a href="#"> OTHER</a>
+                        </li>
+                     </ul>
+
+            
         </nav>
     </div>
     <div class="banner" style="backgroud-image: url(#)"></div>
