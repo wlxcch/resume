@@ -1,6 +1,5 @@
 body{
-    background:black;
-    color:white;
+    background:#efefef;
     margin:0;
      /*去掉body默认样式后边距少了8px */
 }
@@ -13,27 +12,27 @@ a{
     display:block;
     clear:both;
 }
-.topNavBar>nav>ul{
+.topNavBar nav>ul{
     list-style:none;margin:0;padding:0;
 }
-.topNavBar>nav>ul>li{
+.topNavBar nav>ul>li{
     float:left;
     margin-left:17px;
     margin-right:17px;
 }
-.topNavBar>nav>ul>li>a{
+.topNavBar nav>ul>li>a{
     font-size:12px;
     color:#cbcacb;
     /* text-decoration:none; 因为一开始的a标签已声明所以这里不用再写了*/
     font-weight:bold;
     border-bottom: 3px solid transparent;
     border-top: 3px solid transparent;
-    padding-top:5px;
+    padding-top:12px;
     padding-bottom:5px;
     display:block;
     /* 给a一个display：block使得li标签包裹住a标签 */ 
 }
-.topNavBar>nav>ul>li>a:hover{
+.topNavBar nav>ul>li>a:hover{
     border-bottom: 3px solid #e8676b;
 }
 /* 下面的两个class样式可以用这个替换一下 把样式加在父级元素上
@@ -62,7 +61,7 @@ a{
  /* rs card和nav里的行高要一致，虽然例子中的高度是一样,为了了解我们故意设置高度：这样高度就为了40px */
 .nav{
     padding-top:3px;
-    padding-bottom:4px;
+    padding-bottom:4px; 
 }
 .topNavBar{
     /* padding-top:12px;去掉body默认样式后边距少了8px */
@@ -71,6 +70,67 @@ a{
     padding-bottom:20px;
     padding-left:16px；
     padding-right:16px； */
-    padding:20px 16px 20px 18px;
-
+    padding:20px 0px 20px 0px;
+    /* 一般不写 position:fixed脱离文档流;会出问题，相应的div会缩回距离， */
+    position:fixed;
+    top:0;
+    left:0;
+    /* 相应的div会缩回距离，用 width:100%;但是往往造成宽度大于父级元素，所以会在相应div外面再加一个div与padding属性 */
+    width:100%;
+    
 }
+.banner{
+    background-image: url(./img/background.jpg);
+    border:1px solid red;
+    height:515px; 
+    background-position:center center;
+    background-size:cover;
+}
+.banner .mask{
+    height:515px;
+    background-color:rgba(0,0,0,0.8);
+}
+.topNavBar-inner{
+    padding:0 16px;
+}
+.userCard{
+    border:1px solid red;
+    max-width:940px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#ffffff;
+}
+.userCard .welcome{
+    background-color:#e8676b;
+    color:white;
+    display:inline-block;
+    /* width:70px;
+    height:29px;
+    line-height:29px;
+    text-align:center; 
+    可以实现了HELLO居中但是一般不用，固定宽高容易出错，
+    因为一旦内容变多，超过宽度，就不能显示了。用下面的代码代替*/
+
+    /* 从内往外写代码，看看例子多大，补padding的值 ，这样设置内容多了，也会自适应*/
+    padding:4px 16px;
+    line-height:22px;
+    position: relative;
+}
+/* 利用css border样式可以设置出各种三角形 */
+.userCard .welcome .triangle{
+    border:10px solid transparent;
+    width:0px;
+    height:0px;
+
+  /*  可删除因为上面已经设置了transparent
+    border-top-color:transparent;
+    border-right-color:transparent;
+    border-bottom-color:transparent; */
+
+    border-left-color:#e8676b;
+    border-top-width:0;
+    display:block;
+    position:absolute;
+    left:4px;
+    top:100%;
+  }     
