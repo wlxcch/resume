@@ -81,7 +81,7 @@ a{
 }
 .banner{
     background-image: url(./img/background.jpg);
-    border:1px solid red;
+    /* border:1px solid red; */
     height:515px; 
     background-position:center center;
     background-size:cover;
@@ -115,6 +115,7 @@ a{
     padding:4px 16px;
     line-height:22px;
     position: relative;
+    margin-bottom:10px;
 }
 /* 利用css border样式可以设置出各种三角形 */
 .userCard .welcome .triangle{
@@ -133,4 +134,41 @@ a{
     position:absolute;
     left:4px;
     top:100%;
-  }     
+  } 
+  .userCard .picture{
+      float:left;
+  }  
+  .userCard .text{
+      float:left;
+      margin-left:65px;
+      width:470px;
+  }  
+  .userCard .pictureAndText{
+      padding:50px;
+  }
+  h1 ,h2, h3, h4 ,h5 ,h6, p{
+      margin:0;
+      padding:0;
+  }
+  .userCard .text h1{
+      margin-top:18px;
+      margin-bottom:10px;
+  }
+  hr{
+      height:0;
+      border:none;
+      border-top:1px solid #dedede;
+  }
+  .userCard .text hr{
+      margin: 25px 0;
+  }
+  .userCard dl dt,
+  .userCard dl dd{
+      float:left; 
+  }
+  .userCard dl dt{
+      width:30%;
+  }
+  .userCard dl dd{
+      width:70%;
+  }
