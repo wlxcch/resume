@@ -164,11 +164,48 @@ a{
   }
   .userCard dl dt,
   .userCard dl dd{
-      float:left; 
+     float: left; 
+     padding:5px 0;
+     line-height:21px;
+  }
+  *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
   }
   .userCard dl dt{
-      width:30%;
+      width: 30%;
+      font-weight:bold;
+    
   }
   .userCard dl dd{
-      width:70%;
-  }
+    width: 70%;
+    color:rgb(157, 160, 167); 
+}
+.userCard >footer.media{
+    background-color:#e8676b;
+    text-align:center;
+}
+.userCard svg{
+    width:30px;
+    height:30px;
+    fill:white;
+    vertical-align:top;
+}
+.userCard >footer.media>a{
+    /* 这样设置才使得a元素可以包裹住svg元素 ，默认包不住*/
+    display:inline-block;
+    margin: 16px;
+    border-radius:50%;
+    /* 只是50%圆有点小，设置宽高使得变大 */
+    width:40px;
+    /* height:40px; 一写高度就出错，居中容易出问题*/
+    padding:5px 0;
+    line-height:30px;
+    /* 跟svg高度一样，加上paddding后高度一样是40px */
+}
+.userCard >footer.media>a:hover{
+    background:#d05c60;
+}
+
+
