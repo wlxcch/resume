@@ -99,6 +99,7 @@ a{
     margin-left:auto;
     margin-right:auto;
     background-color:#ffffff;
+    box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.3);
 }
 .userCard .welcome{
     background-color:#e8676b;
@@ -206,6 +207,40 @@ a{
 }
 .userCard >footer.media>a:hover{
     background:#d05c60;
+}
+body>main{
+    margin-top:-340px;
+}
+body>main .downloadResumeWrapper .downloadResume{
+    font-size:14px;
+    line-height:16px;
+    padding:21px 55px;
+    display:inline-block;
+    border:1px solid #cdcfd1;
+    /* 因为没有高度所以margin没有用， */
+    /* margin:0 auto; */
+    /* 此元素为内联元素，给他加父元素，居中 */
+    color:#3d4451;
+    font-weight:bold;
+    margin:32px 0;
+    transition:box-shadow 0.2;
+
+}
+/* 给他加父元素，居中  */
+body>main .downloadResumeWrapper{
+    text-align: center;   
+}
+body>main .downloadResumeWrapper .downloadResume:hover{
+    box-shadow: 0px 1px 13px 1px rgba(0,0,0,0.3);
+}
+ .selfintroduction{
+    max-width:940px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    font-family: Gill Sans Extrabold, sans-serif;
+    font-size: 18px;
+    line-height:1.8;
 }
 
 
