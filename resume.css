@@ -97,7 +97,6 @@ ol,ul{
     padding:0 16px;
 }
 .userCard{
-    border:1px solid red;
     max-width:940px;
     margin-left:auto;
     margin-right:auto;
@@ -294,16 +293,71 @@ body>main .downloadResumeWrapper .downloadResume:hover{
 }
 .portfolio ol{
     margin:0 auto;
-    display:inline-block;
-    vertical-align:top;
+    /* display:inline-block;
+    vertical-align:top; */
 }
 .portfolio ol>li{
     float:left;
     margin-left:40px;
+    cursor: pointer;
+}
+.portfolio{
+    text-align:center;
 }
 .portfolio nav{
     text-align: center;
+    display:inline-block;
+    vertical-align:top;
 }
 .portfolio nav>ol>li:nth-child(1){
     margin-left:0;
+}
+.portfolio nav .bar{
+    background:white;
+    /* display:block; */
+    height:5px;
+    border-radius:2px;
+    margin-top:5px;
+    margin-bottom:28px;
+}
+.portfolio>nav .barinner{
+    height:100%;
+    background:#e8676b;
+    border-radius:2px;
+    width:12%;
+    transition:all 1s;
+}
+/* .bar.state1需要连着写不要有空格*/
+/* 一开始 <div id="portfolioBar" class="bar"> 点击鼠标之后<div id="portfolioBar" class='bar state1'> */
+.portfolio>nav .bar.state1  .barinner{
+    width:12%;
+    margin-left:0px;
+}
+.portfolio>nav .bar.state2  .barinner{
+    width:12%;
+    margin-left:74px;
+}
+.portfolio nav .bar.state3  .barinner{
+    width:40%;
+    margin-left:150px;
+}
+.portfolio .works{
+    position:relative;
+    height:578px;
+    margin-bottom: 100px;
+}
+.portfolio .works .big{
+    position:absolute;
+    top:0;
+    left:0;
+}
+.portfolio .works .small1{
+    position:absolute;
+    top:0;
+    left:644px;
+}
+.portfolio .works .small2{
+     position:absolute;
+     top:298px;
+     left:644px;
 }
