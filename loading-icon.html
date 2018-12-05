@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .wrapper,.loading{
+  width:200px;
+  height:200px;
+  border:1px solid red;
+  position:relative;
+}
+.loading::after,.loading::before,.circle{
+  content:'';
+  position:absolute;
+ /*  height:10px;
+  width:10px; */
+  background:black;
+  border-radius:50%;
+  left:0;
+  top:0;
+  bottom:0;
+  right:0;
+  margin:auto;/* 居中显示 */
+  animation :s 1.5s linear infinite;
+}
+.loading::after,.circle:nth-child(2){
+  animation-delay:0.75s;
+} 
+@keyframes s{
+  0%{
+    width:0px;height:0px;opacity:1;
+  }
+  100%{
+    width:100px;height:100px;opacity:0;
+  }
+}
+</style>
+<body>
+    <!-- <div class="wrapper">
+  <div class="circle"></div>
+  <div class="circle"></div>
+</div> -->
+  <!-- 用连个伪元素代替两个DIV -->
+  <div class="loading"></div>
+</body>
+</html>
