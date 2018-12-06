@@ -3,6 +3,7 @@
     <head>
         <title>王丽霞的个人简历</title>
         <link rel="stylesheet" href="./resume.css">
+        <link rel="stylesheet" href="./loading.css">
         <script src="//at.alicdn.com/t/font_833194_jxaprb0rhp.js"></script>
         <style type="text/css">
             .icon {
@@ -11,10 +12,29 @@
                fill: currentColor;
                overflow: hidden;
             }
+            .site-welcome{
+                display: none;
+                position:fixed;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                background:#fff;
+                z-index:1;
+                justify-content:center;
+                align-items:center;
+            }
+            .site-welcome.active{
+                display:flex;
+
+            }
         </style>
     </head>
     <body>
-    <div class="topNavBar">
+    <div id="sitewelcome" class="site-welcome active">
+       <div class="loading"></div>
+    </div>
+    <div id="topNavBar" class="topNavBar">
         <div class="topNavBar-inner clearfix">
         <a class="logo" href="#" alt="logo" style="float:left;">
             <span class="rs">RS</span><span class="card">card</span>
@@ -22,9 +42,7 @@
         <nav style="float:right;" >
             <!--让导航条横起来给ul加classfix类，给li加float属性 .但是ul有默认样式，左边有空隙，
             在ul style中添加margin:0;padding:0就可以去除样式     写样式用冒号：不是用等于号
-
              1.内联样式实现  2.在外部css中写样式 
-
             1.下面是用内联样式写的方法，太繁琐，  推荐外部样式的写法 -->
 
             <!-- <ul style="list-style:none;margin:0;padding:0;border:1px solid red;" class="clearfix">
@@ -225,4 +243,20 @@
      </div>
     </section>
     </body>
+    <script>
+        // 网速太快了看不见loading，所以自己加了定时器，在3s后移除active类
+        setTimeout(function(){
+            sitewelcome.classList.remove('active')
+        },3000) 
+        // window.onscroll监听鼠标滑动， window.scrollY监听鼠标滑动的距离 
+        window.onscroll=function(){
+            // console.log(window.scrollY)
+            if(window.scrollY>0){
+                topNavBar.classList.add('sticky')
+            }
+            else{
+                topNavBar.classList.remove('sticky')
+            }
+        }  
+    </script>
 </html>

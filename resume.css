@@ -25,7 +25,7 @@ ol,ul{
 }
 .topNavBar nav>ul>li>a{
     font-size:12px;
-    color:#cbcacb;
+    color:inherit;
     /* text-decoration:none; 因为一开始的a标签已声明所以这里不用再写了*/
     font-weight:bold;
     border-bottom: 3px solid transparent;
@@ -34,9 +34,23 @@ ol,ul{
     padding-bottom:5px;
     display:block;
     /* 给a一个display：block使得li标签包裹住a标签 */ 
+    position:relative;
 }
-.topNavBar nav>ul>li>a:hover{
-    border-bottom: 3px solid #e8676b;
+.topNavBar nav>ul>li>a:hover::after{
+    /* border-bottom: 3px solid #e8676b; */
+    content:'';
+    display:block;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:#e8676b;
+    height:2px;
+    animation:menuSlide 0.3s;
+}
+@keyframes menuSlide {
+    0%{width:0;}
+    100%{width:100%;}
 }
 /* 下面的两个class样式可以用这个替换一下 把样式加在父级元素上
 .rs{
@@ -66,6 +80,13 @@ ol,ul{
     padding-top:3px;
     padding-bottom:4px; 
 }
+.topNavBar.sticky{
+    background:white;
+    padding: 5px;
+    z-index: 1;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+    color:#3d4451;
+}
 .topNavBar{
     /* padding-top:12px;去掉body默认样式后边距少了8px */
     /* 下面四行代码可以用下面的代码代替：
@@ -80,6 +101,8 @@ ol,ul{
     left:0;
     /* 相应的div会缩回距离，用 width:100%;但是往往造成宽度大于父级元素，所以会在相应div外面再加一个div与padding属性 */
     width:100%;
+    transition:all 1s;
+    color:#cbcacb;
     
 }
 .banner{
