@@ -28,6 +28,18 @@
                 display:flex;
 
             }
+            .topNavBar .submenu{
+                display:none;
+                position:absolute;
+                left:0;
+                top:100%;
+            }
+            .topNavBar .submenu.active{
+                display:block;
+            }
+            .topNavBar .submenu>li{
+                white-space: nowrap;
+            }
         </style>
     </head>
     <body>
@@ -85,7 +97,12 @@
                             <a href="#"> SKILLS</a>
                         </li>
                         <li>
-                            <a href="#"> PORTFOLIO</a>
+                            <a class="menuTigger" href="#">作品 </a>
+                            <ul class="submenu">
+                                <li>作品1</li>
+                                <li>作品2</li>
+                                <li>作品3</li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#"> EXPERIENCE</a>
@@ -94,7 +111,12 @@
                             <a href="#"> PRICING</a>
                         </li>
                         <li >
-                            <a href="#"> BLOG</a>
+                            <a class="menuTigger"  href="#"> BLOG</a>
+                            <ul class="submenu">
+                                <li>博客1</li>
+                                <li>博客2</li>
+                                <li>博客3</li>
+                            </ul>
                         </li>
                         <li >
                             <a href="#"> CALENDAR</a>
@@ -256,7 +278,24 @@
             }
             else{
                 topNavBar.classList.remove('sticky')
+            }S
+        } 
+        // 获取多个名字为.menuTigger class的元素
+        let aTags=document.getElementsByClassName('menuTigger')
+        console.log(aTags)
+        for(let i=0;i<aTags.length;i++){
+            aTags[i].onmouseenter=function(x){
+                // console.log('mouseenter')
+                let a=x.currentTarget
+                let brother=a.nextSibling
+                while(brother.nodeType ===3){
+                    brother=brother.nextSibling
+                }
+                console.log(brother)
             }
-        }  
+            aTags[i].onmouseleave=function(){
+                console.log('mouseleave') 
+            }  
+        }
     </script>
 </html>
