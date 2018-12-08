@@ -31,15 +31,24 @@
             .topNavBar .submenu{
                 display:none;
                 position:absolute;
-                left:0;
+                right:0;
                 top:100%;
+                background:white;
+                color:#3d4451;
+                box-shadow:0 0 5px rgba(0,0,0,0.3);
             }
-            .topNavBar .submenu.active{
+            .topNavBar li.active .submenu{
                 display:block;
+                animation:submenuSlide 0.3s;
             }
             .topNavBar .submenu>li{
                 white-space: nowrap;
+                padding:5px 10px;
             }
+            @keyframes submenuSlide {
+                   0%{margin-right:100%;}
+                   100%{margin-right:0%;}
+                   }
         </style>
     </head>
     <body>
@@ -51,7 +60,7 @@
         <a class="logo" href="#" alt="logo" style="float:left;">
             <span class="rs">RS</span><span class="card">card</span>
         </a>
-        <nav style="float:right;" >
+        <nav class="menu" style="float:right;" >
             <!--让导航条横起来给ul加classfix类，给li加float属性 .但是ul有默认样式，左边有空隙，
             在ul style中添加margin:0;padding:0就可以去除样式     写样式用冒号：不是用等于号
              1.内联样式实现  2.在外部css中写样式 
@@ -96,8 +105,8 @@
                         <li >
                             <a href="#"> SKILLS</a>
                         </li>
-                        <li>
-                            <a class="menuTigger" href="#">作品 </a>
+                        <li >
+                            <a href="#">作品 </a>
                             <ul class="submenu">
                                 <li>作品1</li>
                                 <li>作品2</li>
@@ -110,8 +119,8 @@
                         <li>
                             <a href="#"> PRICING</a>
                         </li>
-                        <li >
-                            <a class="menuTigger"  href="#"> BLOG</a>
+                        <li>
+                            <a href="#"> BLOG</a>
                             <ul class="submenu">
                                 <li>博客1</li>
                                 <li>博客2</li>
@@ -278,23 +287,51 @@
             }
             else{
                 topNavBar.classList.remove('sticky')
-            }S
+            }
         } 
         // 获取多个名字为.menuTigger class的元素
-        let aTags=document.getElementsByClassName('menuTigger')
-        console.log(aTags)
-        for(let i=0;i<aTags.length;i++){
-            aTags[i].onmouseenter=function(x){
+        // let liTags=document.getElementsByClassName('menuTigger')
+        let liTags=document.querySelectorAll('nav.menu>ul>li')
+
+        // console.log(aTags)
+        for(let i=0;i<liTags.length;i++){
+            liTags[i].onmouseenter=function(x){
                 // console.log('mouseenter')
-                let a=x.currentTarget
-                let brother=a.nextSibling
-                while(brother.nodeType ===3){
-                    brother=brother.nextSibling
-                }
-                console.log(brother)
+               x.currentTarget.classList.add('active')     
+
+                // let li=x.currentTarget
+                // let brother=li.getElementsByTagName('ul')[0]
+                // brother.classList.add('active')
+
+                // let brother=li.nextSibling
+                // while(brother.nodeType ===3)
+
+             // 用toLowerCase()转化成小写，
+                //  while(brother.tagName.toLowerCase()!=='ul'
+                //报错，可能borther.tagName找到的是两个标签之间的空文本，不能转化为小写了
+
+                // UL必须大写while(brother.tagName!=='UL')这样保险
+                // while(brother.tagName!=='UL') 
+                // {
+                //  brother=brother.nextSibling
+                // }
+                //  console.log(brother)
+                // brother.classList.add('active')
             }
-            aTags[i].onmouseleave=function(){
-                console.log('mouseleave') 
+            liTags[i].onmouseleave=function(x){
+                x.currentTarget.classList.remove('active') 
+                // console.log('mouseleave')
+                // let li=x.currentTarget
+
+                // let brother=li.nextSibling 
+                // while(brother.tagName!=='UL') 
+                // {
+                //  brother=brother.nextSibling
+                // }
+                // //  console.log(brother)
+
+                // let brother=li.getElementsByTagName('ul')[0]
+                // brother.classList.remove('active')
             }  
         }
     </script>

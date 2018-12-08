@@ -37,7 +37,7 @@ ol,ul{
     /* 给a一个display：block使得li标签包裹住a标签 */ 
     position:relative;
 }
-.topNavBar nav>ul>li>a:hover::after{
+.topNavBar nav>ul>li.active>a::after{
     /* border-bottom: 3px solid #e8676b; */
     content:'';
     display:block;
