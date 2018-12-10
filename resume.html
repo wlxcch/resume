@@ -44,6 +44,7 @@
             .topNavBar .submenu>li{
                 white-space: nowrap;
                 padding:5px 10px;
+                cursor: pointer;
             }
             @keyframes submenuSlide {
                    0%{margin-right:100%;}
@@ -100,13 +101,13 @@
             
                     <ul class="clearfix";>
                         <li >
-                            <a href="#"> ABOUT</a>
+                            <a href="#siteAbout"> ABOUT</a>
                         </li>
                         <li >
-                            <a href="#"> SKILLS</a>
+                            <a href="#siteSkills"> SKILLS</a>
                         </li>
                         <li >
-                            <a href="#">作品 </a>
+                            <a href="#sitePortfolio">作品 </a>
                             <ul class="submenu">
                                 <li>作品1</li>
                                 <li>作品2</li>
@@ -114,13 +115,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"> EXPERIENCE</a>
+                            <a href="#siteExperience"> EXPERIENCE</a>
                         </li>
                         <li>
-                            <a href="#"> PRICING</a>
+                            <a href="#sitePricing"> PRICING</a>
                         </li>
                         <li>
-                            <a href="#"> BLOG</a>
+                            <a href="#siteBlog"> BLOG</a>
                             <ul class="submenu">
                                 <li>博客1</li>
                                 <li>博客2</li>
@@ -128,13 +129,13 @@
                             </ul>
                         </li>
                         <li >
-                            <a href="#"> CALENDAR</a>
+                            <a href="#siteCalendar"> CALENDAR</a>
                         </li>
                         <li>
-                            <a href="#"> CONTACT</a>
+                            <a href="#siteContant"> CONTACT</a>
                         </li>
                         <li>
-                            <a href="#"> OTHER</a>
+                            <a href="#siteOther"> OTHER</a>
                         </li>
                      </ul>
 
@@ -146,7 +147,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div class="userCard">
+        <div id="siteAbout" class="userCard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
                     <img src="./img/me.jpg"  width="299" height="347" alt="头像"> 
@@ -197,7 +198,7 @@
         <p class="selfintroduction">踏实，诚实守信,吃苦耐劳,坚强自信 ,为人乐观,广泛阅览各类书籍，<br>
             工作积极进取,态度认真，沟通能力强，有强烈的责任感和团队精神</p>
     </main>
-    <section class="skills">
+    <section id="siteSkills" class="skills">
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -238,7 +239,7 @@
              </li>                    
         </ol>
     </section>
-    <section class="portfolio">
+    <section id="sitePortfolio" class="portfolio">
       <h2>作品集</h2>
       <nav>    
         <ol class="clearfix">
@@ -333,6 +334,40 @@
                 // let brother=li.getElementsByTagName('ul')[0]
                 // brother.classList.remove('active')
             }  
+        }
+        let aTags=document.querySelectorAll('nav.menu>ul>li>a')
+        for(let i=0;i<aTags.length;i++){
+            aTags[i].onclick=function(x){
+                x.preventDefault()//屏蔽默认的跳转
+                // console.log('you clicked')
+                 console.log(x.currentTarget)
+                let a=x.currentTarget
+                // console.log(a.href)
+                //console.log(a.href)打印结果，带着http协议，显示是被浏览器解析过的地址http://127.0.0.1:8080/resume.html#siteAbout
+                console.log(a.getAttribute('href'))
+                //a.getAttribute('href')打印结果是，我们写的什么就是什么，#siteSkills
+                let href=a.getAttribute('href')
+                //查找id为#siteSkills的元素
+                let element =document.querySelector(href)
+                let top=element.offsetTop
+                // window.scrollTo(0,top-80)动时候有点突然
+                //动的时候变得平滑，分成n次动
+                let n=25//动25次
+                let duration=500/n //多久动一次
+                let currentTop=window.scrollY
+                let targetTop=top-80
+                let distance=(targetTop-currentTop)/n
+                let i=0
+                let id=setInterval(()=>{
+                    if(i==n){
+                        window.clearInterval(id)
+                        return
+                    }
+                    i=i+1
+                    window.scrollTo(0,currentTop+distance*i)
+                },duration)
+
+            }
         }
     </script>
 </html>
