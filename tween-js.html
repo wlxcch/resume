@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <!-- 搜索cds.js引用tween.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
+</head>
+<body>
+<script>
+
+function animate(time) {
+    requestAnimationFrame(animate);
+    TWEEN.update(time);
+}
+requestAnimationFrame(animate);
+var coords = { x: 0, y: 0 }; 
+var tween = new TWEEN.Tween(coords) 
+        .to({ x: 300, y: 200 }, 1000) 
+        .easing(TWEEN.Easing.Quadratic.In) 
+        .onUpdate(function() { 
+            console.log(coords.x , coords.y )
+        })
+        .start(); 
+</script>
+</body>
+</html>
