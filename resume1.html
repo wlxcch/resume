@@ -280,7 +280,16 @@
         // 网速太快了看不见loading，所以自己加了定时器，在3s后移除active类
         setTimeout(function(){
             sitewelcome.classList.remove('active')
-        },3000) 
+        },1000) 
+
+
+        let specialTags=document.querySelectorAll('[data-x]')
+        for(let i=0;i<specialTags.length;i++){
+               specialTags[i].classList.add('offset')
+            }    
+
+        setTimeout(function(){findCloseset()},2000)
+        
         // window.onscroll监听鼠标滑动， window.scrollY监听鼠标滑动的距离 
         window.onscroll=function(){
             // console.log(window.scrollY)
@@ -292,8 +301,12 @@
             }
        
        // 连续打印两次，一次带着引号，是为了分清打印的是什么 -------字符串和值
-        console.log('window.scrollY')
-        console.log(window.scrollY)
+        // console.log('window.scrollY')
+        // console.log(window.scrollY)
+        findCloseset()
+  } 
+
+       function findCloseset(){
         let specialTags=document.querySelectorAll('[data-x]')
         let minIndex=0
         for(let i=1;i<specialTags.length;i++){
@@ -307,9 +320,9 @@
     for(let i=0;i<specialTags.length;i++){
         specialTags[i].classList.remove('active')
         }
-        specialTags[minIndex].classList.add('active')
+        specialTags[minIndex].classList.remove('offset')
         let id=specialTags[minIndex].id
-        console.log(id)
+        // console.log(id)
         let a=document.querySelector('a[href="#'+id+'"]')
         let li=a.parentNode
         // console.log(li)
@@ -317,12 +330,10 @@
         // id=='siteWorks' 'a[href=#siteWorks]' 
         let brothersAndMe=li.parentNode.children
         for(let i=0;i<brothersAndMe.length;i++){
-            brothersAndMe[i].classList.remove('active')
+            brothersAndMe[i].classList.remove('highLight')
         }
-        li.classList.add('active')
-  } 
-
-       
+        li.classList.add('highLight')
+       }
         
         // 获取多个名字为.menuTigger class的元素
         // let liTags=document.getElementsByClassName('menuTigger')
