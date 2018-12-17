@@ -52,7 +52,7 @@ ol,ul{
     position:relative;
 }
 .topNavBar nav>ul>li.active>a::after,
-.topNavBar nav>ul>li.highlight>a::after{
+.topNavBar nav>ul>li.highLight>a::after{
     /* border-bottom: 3px solid #e8676b; */
     content:'';
     display:block;
