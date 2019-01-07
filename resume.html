@@ -4,7 +4,7 @@
         <title>王丽霞的个人简历</title>
         <link rel="stylesheet" href="./resume.css">
         <link rel="stylesheet" href="./loading.css">
-        <script src="//at.alicdn.com/t/font_833194_jxaprb0rhp.js"></script>
+        <script src="//at.alicdn.com/t/font_1003667_3vujvsfkt8t.js"></script>
         <style type="text/css">
             .icon {
                width: 1em; height: 1em;
@@ -147,7 +147,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div id="siteAbout" class="userCard">
+        <div data-x id="siteAbout" class="userCard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
                     <img src="./img/me.jpg"  width="299" height="347" alt="头像"> 
@@ -172,24 +172,24 @@
                 </div>
             </div>
         <footer class="media">
-            <a href="#">
+            <a href="https://github.com/wlxcch" target="_blank">
                 <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-github1"></use>
+                <use xlink:href="#icon-github"></use>
                 </svg>    
             </a>
-            <a href="#">
+            <a href="https://www.zhihu.com/people/da-xia-14-33-35/activities">
                 <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-weibo"></use>
+                <use xlink:href="#icon-matuwang-zhihufangxingdianji"></use>
                 </svg>    
             </a>
-            <a href="#">
+            <a href="http://js.jirengu.com/?">
                 <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-icontwiter"></use>
+                <use xlink:href="#icon-jirengulogored-copy"></use>
                 </svg>    
             </a>
-            <a href="#">
+            <a href="https://wlxcch.github.io/index.html">
                 <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-jianshu"></use>
+                <use xlink:href="#icon-boke"></use>
                 </svg>    
             </a>
         </footer>
@@ -198,9 +198,10 @@
         <p class="selfintroduction">踏实，诚实守信,吃苦耐劳,坚强自信 ,为人乐观,广泛阅览各类书籍，<br>
             工作积极进取,态度认真，沟通能力强，有强烈的责任感和团队精神</p>
     </main>
-    <section id="siteSkills" class="skills">
+    <section data-x id="siteSkills" class="skills">
+        <div class="mask2" style="opacity: 0.3">学习进行时</div>
         <h2>技能</h2>
-        <ol class="clearfix">
+        <ol class="clearfix" >
             <li>
                 <h3>HTML &amp ;css3</h3>
                 <div class="progressBar">
@@ -239,7 +240,7 @@
              </li>                    
         </ol>
     </section>
-    <section id="sitePortfolio" class="portfolio">
+    <section data-x id="sitePortfolio" class="portfolio">
       <h2>作品集</h2>
       <nav>    
         <ol class="clearfix">
@@ -264,22 +265,35 @@
      </script>
      <div class="works">
          <div class="big">
-             <img src="./img/1.jpg">
+            <a href="  https://wlxcch.github.io/js/kbd/kbd.html" target="_blank">
+                 <img src="./img/1.jpg" style="opacity: 0.5"><div class="mask1">键盘导航</div></a>
         </div>
          <div class="small1">
-            <img src="./img/2.jpg">
+            <a href="https://wlxcch.github.io/js/canvas/canvas.html" target="_blank"> 
+                <img src="./img/2.jpg" style="opacity: 0.5"><div class="mask1">简单画板</div></a>
         </div>
          <div class="small2">
-            <img src="./img/3.jpg">
+            <a href="https://wlxcch.github.io/an-niu/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87" target="_blank">
+                 <img src="./img/3.jpg" style="opacity: 0.5"><div class="mask1">上传图片</div></a>
         </div>    
      </div>
     </section>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
     <script>
         // 网速太快了看不见loading，所以自己加了定时器，在3s后移除active类
         setTimeout(function(){
             sitewelcome.classList.remove('active')
-        },3000) 
+        },1000) 
+
+
+        let specialTags=document.querySelectorAll('[data-x]')
+        for(let i=0;i<specialTags.length;i++){
+               specialTags[i].classList.add('offset')
+            }    
+
+        setTimeout(function(){findCloseset()},2000)
+        
         // window.onscroll监听鼠标滑动， window.scrollY监听鼠标滑动的距离 
         window.onscroll=function(){
             // console.log(window.scrollY)
@@ -289,7 +303,42 @@
             else{
                 topNavBar.classList.remove('sticky')
             }
-        } 
+       
+       // 连续打印两次，一次带着引号，是为了分清打印的是什么 -------字符串和值
+        // console.log('window.scrollY')
+        // console.log(window.scrollY)
+        findCloseset()
+  } 
+
+       function findCloseset(){
+        let specialTags=document.querySelectorAll('[data-x]')
+        let minIndex=0
+        for(let i=1;i<specialTags.length;i++){
+            if(Math.abs(specialTags[i].offsetTop-window.scrollY)<Math.abs(specialTags[minIndex].offsetTop-window.scrollY)){
+                minIndex=i
+            }
+            // console.log('specialTags[i].offsetTop')
+            // console.log(specialTags[i].offsetTop)
+        }
+    //   console.log(minIndex)
+   
+
+   
+        specialTags[minIndex].classList.remove('offset')
+        let id=specialTags[minIndex].id
+        // console.log(id)
+        let a=document.querySelector('a[href="#'+id+'"]')
+        let li=a.parentNode
+        // console.log(li)
+        // id=='siteAbout' 'a[href=#siteAbout]' 
+        // id=='siteWorks' 'a[href=#siteWorks]' 
+        let brothersAndMe=li.parentNode.children
+        for(let i=0;i<brothersAndMe.length;i++){
+            brothersAndMe[i].classList.remove('highLight')
+        }
+        li.classList.add('highLight')
+       }
+        
         // 获取多个名字为.menuTigger class的元素
         // let liTags=document.getElementsByClassName('menuTigger')
         let liTags=document.querySelectorAll('nav.menu>ul>li')
@@ -336,38 +385,75 @@
             }  
         }
         let aTags=document.querySelectorAll('nav.menu>ul>li>a')
-        for(let i=0;i<aTags.length;i++){
-            aTags[i].onclick=function(x){
-                x.preventDefault()//屏蔽默认的跳转
-                // console.log('you clicked')
-                 console.log(x.currentTarget)
-                let a=x.currentTarget
-                // console.log(a.href)
-                //console.log(a.href)打印结果，带着http协议，显示是被浏览器解析过的地址http://127.0.0.1:8080/resume.html#siteAbout
-                console.log(a.getAttribute('href'))
-                //a.getAttribute('href')打印结果是，我们写的什么就是什么，#siteSkills
-                let href=a.getAttribute('href')
-                //查找id为#siteSkills的元素
-                let element =document.querySelector(href)
-                let top=element.offsetTop
-                // window.scrollTo(0,top-80)动时候有点突然
-                //动的时候变得平滑，分成n次动
-                let n=25//动25次
-                let t=500/n //多久动一次
-                let currentTop=window.scrollY
-                let targetTop=top-80
-                let distance=(targetTop-currentTop)/n
-                let i=0
-                let id=setInterval(()=>{
-                    if(i==n){
-                        window.clearInterval(id)
-                        return
-                    }
-                    i=i+1
-                    window.scrollTo(0,currentTop+distance*i)
-                },t)
 
-            }
-        }
+
+
+        // for(let i=0;i<aTags.length;i++){
+        //     aTags[i].onclick=function(x){
+        //         x.preventDefault()//屏蔽默认的跳转
+        //         // console.log('you clicked')
+        //          console.log(x.currentTarget)
+        //         let a=x.currentTarget
+        //         // console.log(a.href)
+        //         //console.log(a.href)打印结果，带着http协议，显示是被浏览器解析过的地址http://127.0.0.1:8080/resume.html#siteAbout
+        //         连续打印两次，一次带着引号，是为了分清打印的是什么
+        //         console.log('a.getAttribute('href')')
+        //         console.log(a.getAttribute('href'))
+
+        //         //a.getAttribute('href')打印结果是，我们写的什么就是什么，#siteSkills
+        //         let href=a.getAttribute('href')
+        //         //查找id为#siteSkills的元素
+        //         let element =document.querySelector(href)
+        //         let top=element.offsetTop
+        //         // window.scrollTo(0,top-80)动时候有点突然
+        //         //动的时候变得平滑，分成n次动
+        //         let n=25//动25次
+        //         let t=500/n //多久动一次
+        //         let currentTop=window.scrollY
+        //         let targetTop=top-80
+        //         let distance=(targetTop-currentTop)/n
+        //         let i=0
+        //         let id=setInterval(()=>{
+        //             if(i==n){
+        //                 window.clearInterval(id)
+        //                 return
+        //             }
+        //             i=i+1
+        //             window.scrollTo(0,currentTop+distance*i)
+        //         },t)
+
+
+        //利用tween.js做动画比较自然，上面的算法比较生硬
+        //引入tween.js后
+ function animate(time) {
+        requestAnimationFrame(animate);
+        TWEEN.update(time);
+    }
+ requestAnimationFrame(animate);
+  for(let i=0;i<aTags.length;i++){
+        aTags[i].onclick=function(x){
+        x.preventDefault()//屏蔽默认的跳转
+        let a=x.currentTarget
+        let href=a.getAttribute('href')
+        let element =document.querySelector(href)
+        let top = element.offsetTop
+
+        let currentTop=window.scrollY
+        let targetTop=top-80
+        let s=targetTop-currentTop
+        console.log(s)
+        var coords = { y: currentTop }; 
+    //    取绝对值，排除滚回去时，s为负值，时间不能为负
+        var t=Math.abs((s/100)*300)
+        if(t>500){t=500}
+        var tween = new TWEEN.Tween(coords) 
+            .to({y: targetTop}, t) 
+            .easing(TWEEN.Easing.Quadratic.InOut) 
+            .onUpdate(function() { 
+                window.scrollTo(0,coords.y )
+            })
+        .start(); 
+    }
+}
     </script>
 </html>

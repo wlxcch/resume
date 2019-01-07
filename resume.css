@@ -284,6 +284,15 @@ body>main .downloadResumeWrapper .downloadResume:hover{
     font-size: 18px;
     line-height:1.8;
 }
+.skills{
+    position:relative;
+}
+.skills .mask2{
+    position:absolute;
+    top:60%;
+    left:40%;
+    font-size:50px;
+}
 .skills ,
 .portfolio{
     max-width:940px;
@@ -394,7 +403,13 @@ body>main .downloadResumeWrapper .downloadResume:hover{
 .portfolio .works .big{
     position:absolute;
     top:0;
-    left:0;
+    left:0;  
+}
+.portfolio .works .mask1{
+    position:absolute;
+    top:50%;
+    left:40%; 
+    font-size:25px;
 }
 .portfolio .works .small1{
     position:absolute;
